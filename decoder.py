@@ -7,11 +7,14 @@ from time import perf_counter
 n1 = r'C:\Users\91868\Desktop\v1.png'
 
 def decrypt(message):
-    #cryptography
-    message = message.replace('@', "a")
-    message = message.replace('#', 'e')
-    message = message.replace('*', "i")
-    return message
+    new_message = ""
+    print('Encrypted message is: \n',message)
+    for e in message:
+        if ord(e) < 254:
+            new_message += chr(ord(e) - 1)
+        else:
+            new_message += chr(ord(e))
+    return new_message
 
 
 def decoder3(image):
@@ -38,9 +41,3 @@ print(d)
 
 end = perf_counter()
 print('Message Length:',len(d),'\nDecoding time:', round(end - start,3))
-
-
-
-"""
-The output of this program will decoding time and the hidden message itself.
-"""
