@@ -4,26 +4,23 @@ import base64
 import numpy as np
 from time import perf_counter
 
-#Below these 3 are sample (512*512) input images
 
 im1 = r'C:\Users\91868\Desktop\test1.png'
 im2 = r'C:\Users\91868\Desktop\test2.png'
 im3 = r'C:\Users\91868\Desktop\test3.png'
 
-n1 = r'C:\Users\91868\Desktop\v1.png'   #This is the path for output image named v1
+imd = r'C:\Users\91868\Desktop\small.jpg'
 
+n1 = r'C:\Users\91868\Desktop\v1.png'
 
 def crypt(message):
-    # cryptography
-    message=message.replace('a',"@")
-    message=message.replace('e','#') 
-    message=message.replace('i',"*")
-    return message
-
-"""
-The crypt() function is just a demo for symmetric key cryptography.
-For more security change the message into base64 string and then embed it in image after applying cryptography.
-"""
+    new_message=""
+    for e in message:
+      if ord(e)<254:
+          new_message+=chr(ord(e)+1)
+      else:
+          new_message += chr(ord(e))
+    return new_message
 
 def encoder3(image, message, path):
     message = crypt(message)
@@ -65,24 +62,80 @@ def encoder3(image, message, path):
     return msg
 
 
-msg="""
-This is our sample message for hiding. This will be encrypted first and then embeded into image.
-You can vary or change this message if you wants to.
+m1="""
+This is an era of wireless communication networks. People share their data to each other over world.
+"""
+m2="""
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide a
+"""
+m3= """
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
 """
 
+m4="""
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+Hemant malik's Message: This is an era of wireless communication networks. People share their data to each other over the internet 
+using different protocols like Http/Https, web sockets, FTP, SMTP etc. For the security of data cryptography 
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+the past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+This paper speaks about the different existing   techniques in cloud environments.
+plays an important role. With the increase in usages of the internet the cyber-attacks have also increased over 
+ past few years. Thus, this problem gives rise to steganography techniques i.e. some advanced secret sharing 
+techniques are evolved to hide data in other files after applying cryptography to the confidential/secret data. 
+
+"""
 start = perf_counter()
-msg = encoder3(im1, msg, n1)
+msg = encoder3(im3, m4, n1)
 end = perf_counter()
-
-print('Message Length:',len(msg),'\nEncoding time:', round(end - start,3))
-
-
-"""
-Message length and time taken for encryption are the 2 outputs of this program.
-
-The Output stego image will be stored at path given (i.e 'n1' here).
-This stego image will act as the input for decryptor.
-"""
+print('Message Length:',len(m4),'\nEncoding time:', round(end - start,3))
 
 
 
